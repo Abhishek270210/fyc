@@ -4,9 +4,9 @@ import './custom-button-style.css'
 
 class Custombuttoncomponent extends Component {
     render() {
-        const {children,...otherProps}=this.props
+        const {children,isgooglesignin,...otherProps}=this.props
         return (
-            <button className="custom-button" {...otherProps}>
+            <button className={`${isgooglesignin ? 'google-sign-in-button':''} custom-button`} {...otherProps}>
                 {children}
             </button>
         )
