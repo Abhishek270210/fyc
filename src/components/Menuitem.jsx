@@ -4,7 +4,6 @@ import {withRouter} from 'react-router-dom'
 
 class Menuitem extends Component {
     render() {
-        console.log(this.props.match.url);
         const {title,imageUrl,size,linkUrl,history,match}=this.props;
         const style={
             backgroundImage:`url(${imageUrl})`
