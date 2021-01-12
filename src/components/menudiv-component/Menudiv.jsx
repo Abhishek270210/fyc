@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Menuitem from './Menuitem'
+import Menuitem from '../menu-item-component/Menuitem'
 import './Menudiv-style.css'
 
 class Menudiv extends Component {

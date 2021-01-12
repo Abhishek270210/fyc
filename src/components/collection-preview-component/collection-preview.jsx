@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Itempreview from './item-preview'
+import Itempreview from '../item-preview-component/item-preview'
 import './collection-preview-style.css'
 
 class Collectionpreview extends Component {

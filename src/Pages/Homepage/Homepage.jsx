@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Homepage-style.css'
-import Menudiv from '../../components/Menudiv'
+import Menudiv from '../../components/menudiv-component/Menudiv'
 class Homepage extends Component {
     render() {
         return (
