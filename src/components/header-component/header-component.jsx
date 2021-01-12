@@ -3,10 +3,12 @@
 import { auth } from '../../firebase/firebase.utils';
  import './header-component-style.css'
  import {connect}  from 'react-redux'
+ import Carticon from '../cart-icon-component/cart-icon'
+ import Cartdropdown from '../cart-dropdown-component/cart-dropdown'
 
 class Header extends Component {
     render() {
-        const { curruser }=this.props
+        const { curruser,iscartdropdown }=this.props
         return (
             <div className="header">
              <Link to='/' className="nav-item" >FYC</Link>
@@ -16,16 +18,22 @@ class Header extends Component {
                      curruser ? <div className="nav-item" onClick={()=>auth.signOut()}>sign out</div>:<Link className="nav-item" to='/signin'>sign in</Link>
                  }
                  <Link className="nav-item" to='/shop'>Contact</Link>
-            </div>   
+                <Carticon></Carticon>
+            </div> 
+            {
+              iscartdropdown ?  null:<Cartdropdown />
+            }
             </div>
         )
     }
 }
 
-const mapStateToProps=(state)=>{
+const mapStateToProps=({user:{current_user},cart:{hidden}})=>{
     return ({
-        curruser:state.user.current_user
+        curruser:current_user,
+        iscartdropdown:hidden
     })
 }
+
 
 export default connect(mapStateToProps)(Header);
