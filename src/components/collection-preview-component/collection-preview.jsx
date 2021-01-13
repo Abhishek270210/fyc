@@ -12,8 +12,8 @@ class Collectionpreview extends Component {
                 <h2 className="collection-preview-title">{title}</h2>
                 <div className="preview">
                 {
-                    items.filter((item,id)=>id<4).map(({id,...otherProps})=>(
-                         <Itempreview key={id} {...otherProps} />
+                    items.filter((item,id)=>id<4).map((item)=>(
+                         <Itempreview key={item.id} item={item} />
                     ))
                 }
                 </div>

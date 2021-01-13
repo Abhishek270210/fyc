@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 // import Custombuttoncomponent from '../custom-button/custom-button-component'
 import './item-preview-style.css'
+import {connect} from 'react-redux'
+import { additem } from '../../redux/cart/cart-action'
 
 class Itempreview extends Component {
     render() {
-        const {name,imageUrl,price}=this.props;
+        const {item,addToCart}=this.props;
+        const {name,imageUrl,price}=item;
         const style={
             backgroundImage:`url(${imageUrl})`
         }
@@ -17,10 +20,14 @@ class Itempreview extends Component {
                    <span className="price">{price}</span>
                 </div>
                 {/* <Custombuttoncomponent inverted >Add to cart</Custombuttoncomponent> */}
-                 <button className="custom-button-in-collection" >Add to cart</button>
+                 <button onClick={()=>addToCart(item)} className="custom-button-in-collection" >Add to cart</button>
             </div>
         )
     }
 }
 
-export default Itempreview
+const mapDispatchToProps=dispatch=>({
+    addToCart:item=>dispatch(additem(item))
+})
+
+export default connect(null,mapDispatchToProps)(Itempreview)
