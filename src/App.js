@@ -8,6 +8,8 @@ import { Route,Switch,Redirect } from "react-router-dom";
 import { auth,createnewprofile } from './firebase/firebase.utils'
 import {connect} from 'react-redux';
 import setCurrentUser from './redux/user/user-action'
+import Checkout from './Pages/checkout/checkout'
+
 
 class App extends Component {
    unsubscribefromauth=null;
@@ -41,6 +43,7 @@ class App extends Component {
         <Route exact path='/' component={Homepage} />
         <Route exact path='/shop' component={Shop} />
         <Route exact path='/signin' render={()=>this.props.isuser ? (<Redirect to='/' />):( <Signinandsingnup /> )}       />
+        <Route exact path='/checkout' component={Checkout} />
         </Switch>
       </div>
     )

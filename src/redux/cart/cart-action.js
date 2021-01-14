@@ -9,5 +9,15 @@ export const additem=(item)=>({
     payload:item
 })
 
+export const removeitem=(item)=>({
+    type:cartActionTypes.REMOVE_ITEM,
+    payload:item
+})
+
+export const clearitem=(item)=>({
+    type:cartActionTypes.CLEAR_ITEM,
+    payload:item
+})
+
 
 
