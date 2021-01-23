@@ -5,6 +5,8 @@ import { auth } from '../../firebase/firebase.utils';
  import {connect}  from 'react-redux'
  import Carticon from '../cart-icon-component/cart-icon'
  import Cartdropdown from '../cart-dropdown-component/cart-dropdown'
+ import {selectCurrentUser} from '../../redux/user/user-selector'
+ import {selectToggleDropdown} from '../../redux/cart/cart-selector'
 
 class Header extends Component {
     render() {
@@ -28,10 +30,10 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps=({user:{current_user},cart:{hidden}})=>{
+const mapStateToProps=(state)=>{
     return ({
-        curruser:current_user,
-        iscartdropdown:hidden
+        curruser:selectCurrentUser(state),
+        iscartdropdown:selectToggleDropdown(state)
     })
 }
 

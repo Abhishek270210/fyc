@@ -5,6 +5,7 @@ import Cartitem from '../cart-item-component/cart-item'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import { cartAction } from '../../redux/cart/cart-action'
+import {selectCartItems} from '../../redux/cart/cart-selector'
 
  class Cartdropdown extends Component {
     render() {
@@ -27,8 +28,8 @@ import { cartAction } from '../../redux/cart/cart-action'
     }
 }
 
-const mapStateToProps=({cart:{cartitems}})=>({
-    cartitems
+const mapStateToProps=(state)=>({
+    cartitems:selectCartItems(state)
 })
 
 export default withRouter(connect(mapStateToProps)(Cartdropdown));

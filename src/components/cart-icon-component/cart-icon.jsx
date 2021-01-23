@@ -3,16 +3,15 @@ import { ReactComponent as ShoppingIcon } from '../../required-things/shopping-b
 import './cart-icon-style.css'
 import {connect} from 'react-redux'
 import {cartAction} from '../../redux/cart/cart-action'
+import {selectCartItemCount} from '../../redux/cart/cart-selector'
 
  class Carticon extends Component {
     render() {
-        const {cartitems,toggledropdown}=this.props;
-        let no_of_items=0;
-        cartitems.map(cartitem=>no_of_items+=cartitem.quantity);
+        const {itemCount,toggledropdown}=this.props;
         return (
             <div className="cart-icon">
                 <ShoppingIcon className="shopping-icon" onClick={toggledropdown} />
-                <span className="item-count">{no_of_items}</span>
+                <span className="item-count">{itemCount}</span>
             </div>
         )
     }
@@ -22,8 +21,8 @@ const mapDispatchToProps=dispatch=>({
     toggledropdown:()=>dispatch(cartAction())
 })
 
-const mapStateToProps=({cart:{cartitems}})=>({
-    cartitems
+const mapStateToProps=(state)=>({
+    itemCount:selectCartItemCount(state)
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Carticon);

@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import './checkout-style.css'
 import Checkoutitem from  '../../components/checkout-item/checkout-item'
 import {connect} from 'react-redux'
+import {selectCartTotal} from '../../redux/cart/cart-selector'
 
 
 class Checkout extends Component {
     render() {
-        const {cartitems}=this.props;
-        let totalprice=0;
-        cartitems.map(cartitem=>totalprice=totalprice+cartitem.quantity*cartitem.price)
+        const {cartitems,totalprice}=this.props;
         return (
             <div className="checkout-page">
                 <div className="checkout-header">
@@ -39,8 +38,9 @@ class Checkout extends Component {
     }
 }
 
-const mapStateToProps=({cart:{cartitems}})=>({
-    cartitems
+const mapStateToProps=(state)=>({
+    cartitems:state.cart.cartitems,
+    totalprice:selectCartTotal(state)
 })
 
 export default connect(mapStateToProps)(Checkout)
