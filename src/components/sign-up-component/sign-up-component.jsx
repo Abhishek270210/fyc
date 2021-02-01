@@ -53,9 +53,9 @@ class Signupcomponent extends Component {
             <div className="sign-up-component">
                 <h2 className="title">create an account</h2>
                 <form className="sign-up-form" onSubmit={this.handleSubmit}>
-                    <Inputcomponent type='text' name='displayName' value={displayName} handleInputchange={this.handleInputchange} label='displayname' required />
-                    <Inputcomponent type='email' name='email' value={email} handleInputchange={this.handleInputchange} label='email' required />
-                    <Inputcomponent type='password' name='password' value={password} handleInputchange={this.handleInputchange} label='password' required />
+                    <Inputcomponent type='text' name='displayName' value={displayName} handleInputchange={this.handleInputchange} label='Display Name' required />
+                    <Inputcomponent type='email' name='email' value={email} handleInputchange={this.handleInputchange} label='Email' required />
+                    <Inputcomponent type='password' name='password' value={password} handleInputchange={this.handleInputchange} label='Password' required />
                     <Inputcomponent type='password' name='confirmpassword' value={confirmpassword} handleInputchange={this.handleInputchange} label='confirm password' required />
                     <Custombuttoncomponent type='submit' >Sign up</Custombuttoncomponent>
                 </form>
