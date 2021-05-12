@@ -1,6 +1,9 @@
-.homepage {
+.homepage-innerdiv {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 80px;
+    padding: 150px 80px;
+    background-image: url('../../pexels-johannes-plenio-1103970.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }

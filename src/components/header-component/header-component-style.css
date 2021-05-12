@@ -22,5 +22,10 @@
       .nav-item {
         padding: 10px 15px;
         cursor: pointer;
+        color: black;
+      }
+      .nav-item:hover{
+        text-decoration: none;
+        color: black;
       }
   
